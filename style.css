@@ -1,14 +1,34 @@
+body {
+    border: 0px;
+    margin: 0px;
+    
+}
 .papaDiv {
     background-color: grey;
-    width: 250;
-    border: 5px;
+
+
+    /* border: 5px; */
+    height: 1000px;
+    display: flex;
+    /* position: fixed; */
+    /* border-color: aliceblue; */
 }
 #navDiv {
-    color:aliceblue;
+    color:blue;
+    background-color: aquamarine;
+    /* border: 12px; */
+    border-color: red;
+    align-self: left;
+    height:100%;
+    width:25%;
+    position: fixed;
     
 
 }
 #scrollDiv { 
-    color:aliceblue;
+    color:black;
+    align-self: right;
+    height: 100%;
+    width: 75%;
 
 }
