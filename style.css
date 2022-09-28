@@ -1,7 +1,9 @@
 body {
     border: 0px;
     margin: 0px;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("background.jpg");
+    background-image: url("background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .papaDiv {
     /* border: 5px; */
@@ -11,22 +13,31 @@ body {
     /* border-color: aliceblue; */
 }
 #navDiv {
-    color:blue;
     /* border: 12px; */
+    display: flex;
+    justify-content: center;
     flex: 25%;
     border-color: red;
     align-self: left;
     height:100%;
     width:25%;
     position: fixed;
+    opacity: .5;
+    color:white;
+    background-color: black;
 }
 #scrollDiv { 
     flex: 75%;
-    color:white;
+    color:green;
     align-self: right;
     height: 100%;
     width: 75%;
     position: relative;
     right: 0;
     padding-left: 25%;
+}
+.Navhead{
+    font-size: 35px;
+    align-self:center ;
+    
 }
