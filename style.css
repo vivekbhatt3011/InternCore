@@ -1,12 +1,9 @@
 body {
     border: 0px;
     margin: 0px;
-    
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("background.jpg");
 }
 .papaDiv {
-    background-color: grey;
-
-
     /* border: 5px; */
     height: 1000px;
     display: flex;
@@ -15,20 +12,21 @@ body {
 }
 #navDiv {
     color:blue;
-    background-color: aquamarine;
     /* border: 12px; */
+    flex: 25%;
     border-color: red;
     align-self: left;
     height:100%;
     width:25%;
     position: fixed;
-    
-
 }
 #scrollDiv { 
-    color:black;
+    flex: 75%;
+    color:white;
     align-self: right;
     height: 100%;
     width: 75%;
-
+    position: relative;
+    right: 0;
+    padding-left: 25%;
 }
