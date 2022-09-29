@@ -16,14 +16,21 @@ body {
 #navDiv {
     display: flex;
     justify-content: center;
+    align-content: center;
     border-color: red;
     align-self: left;
     height:100vh;
     width:20%;
     position: fixed;
-    opacity: .5;
+    font-size: 50%;
+    opacity: .6;
     color:white;
     background-color: black;
+}
+.navbarlogo{
+    height: 70px;
+    margin-bottom: 10px;
+    
 }
 #scrollDiv { 
     color: white;
@@ -40,14 +47,14 @@ body {
     line-height: 45px;
 }
 .introbox{
-    margin: auto;
-    width: 45%;
+    margin-left: 70vh;
+    width: 40%;
     border: 3px solid black;
     padding: 10px;
     background-color: black;
     opacity: .5;
     color: white;
-    margin-top: 250px;
+    margin-top: 200px;
     border-radius: 20px;
     font-size: 22px;
     position: relative;
