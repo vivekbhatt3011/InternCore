@@ -12247,9 +12247,20 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
 .distancefromabove{
   margin-top: 20px;
 }
-
-
-
+.internshipsTypes{
+  display:flex;
+}
+.internshipsTypes p{
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.internshipsTypes h2{
+  margin-top: 40px;
+  margin-left: 40px;
+}
+.colortext{
+  color: #6c757d;
+}
 /* .carousel-slide-resources{
   width:80vw;
   height: 10%;
