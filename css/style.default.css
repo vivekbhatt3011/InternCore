@@ -12265,6 +12265,12 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
 .colortext{
   color: #6c757d;
 }
+.photo {
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 50%;
+}
 /* .carousel-slide-resources{
   width:80vw;
   height: 10%;
