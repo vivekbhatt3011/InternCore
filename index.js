@@ -1,56 +1,50 @@
-var express = require("express")
-var bodyParser = require("body-parser")
-var mongoose = require("mongoose")
+const express= require("express");
+const path=require("path");
+const app=express();
+const mongoose=require("mongoose");
+mongoose.connect("mongodb://localhost:27017/interncore",{
+  
+}).then(()=>{
+    console.log(`connection successful`);
 
-const app = express()
-
-app.use(bodyParser.json())
-app.use(express.static('public'))
-app.use(bodyParser.urlencoded({
-    extended:true
-}))
-
-mongoose.connect('mongodb://localhost:27017/mydb',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+}).catch((e)=>{
+    console.log(`no connection`);
+})
+const interncore= require("./models/registers");
+const port=process.env.PORT ||3000;
+const static_path=path.join(__dirname, "../public" );
+const template_path=path.join(__dirname, "../template/views" );
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(express.static(static_path));
+app.set("view engine", "hbs");
+app.set("views", template_path)
+app.get("/",(req,res)=>{
+    res.render("index");
 });
-
-var db = mongoose.connection;
-
-db.on('error',()=>console.log("Error in Connecting to Database"));
-db.once('open',()=>console.log("Connected to Database"))
-
-app.post("/sign_up",(req,res)=>{
-    var name = req.body.name;
-    var email = req.body.email;
-    var phno = req.body.phno;
-    var password = req.body.password;
-
-    var data = {
-        "name": name,
-        "email" : email,
-        "phno": phno,
-        "password" : password
+app.get("/register",(req,res)=>{
+    res.render("register");
+})
+app.post("/register", async (req,res)=>{
+    console.log("register");
+    try {
+        const student=new interncore({
+            name:req.body.UserName,
+             email:req.body.email,
+             mobilenumber:req.body.mobilenumber,
+             password:req.body.password,
+            gender:req.body.gender,
+            skilllevel:req.body.skilllevel,
+            qualification:req.body.qualification
+        });
+        console.log(student);
+        const registered= await student.save();
+        res.status(201).render("index");
+    } catch (error) {
+        res.status(400).send(error);
     }
-
-    db.collection('users').insertOne(data,(err,collection)=>{
-        if(err){
-            throw err;
-        }
-        console.log("Record Inserted Successfully");
-    });
-
-    return res.redirect('signup_success.html')
-
 })
 
-
-app.get("/",(req,res)=>{
-    res.set({
-        "Allow-access-Allow-Origin": '*'
-    })
-    return res.redirect('index.html');
-}).listen(3000);
-
-
-console.log("Listening on PORT 3000");
+app.listen(port,()=>{
+    console.log(`server is running at port no ${port}`);
+})
